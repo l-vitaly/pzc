@@ -19,6 +19,8 @@ services:
       - "8400:8400"
       - "8500:8500"
       - "8600:53"
+    extra_hosts:
+     - "host.machine:10.200.10.1"
 
   zipkin:
     image: openzipkin/zipkin
