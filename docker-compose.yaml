@@ -19,8 +19,6 @@ services:
       - "8400:8400"
       - "8500:8500"
       - "8600:53"
-    extra_hosts:
-     - "host.machine:10.200.10.1"
 
   zipkin:
     image: openzipkin/zipkin
@@ -46,6 +44,8 @@ services:
       - 9090:9090
     links:
       - cadvisor:cadvisor
+    extra_hosts:
+     - "host:10.200.10.1"
 
   cadvisor:
     image: google/cadvisor
