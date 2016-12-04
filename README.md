@@ -1,4 +1,4 @@
-Docker - Prometheus & Consul & Grafana & Zipkin
+Docker Compose - Prometheus & Consul & Grafana & Zipkin
 ======================================
 
 # Install
