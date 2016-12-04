@@ -13,7 +13,7 @@ Then containers can connect to this address.*
 
 Add your services debug address to targets, use host<sup>*</sup>:port.
 
-* host = 10.200.10.1
+*host = 10.200.10.1
 
 
 Run:
