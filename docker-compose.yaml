@@ -1,8 +1,9 @@
 version: "2"
 
 volumes:
-  prometheus_data: {}
-  grafana_data: {}
+  consul-data: {}
+  prometheus-data: {}
+  grafana-data: {}
 
 networks:
   front-tier:
@@ -13,6 +14,8 @@ networks:
 services:
   consul:
     image: "consul"
+    volumes:
+      - consul-data:/consul/data
     container_name: "consul"
     hostname: "consul"
     ports:
@@ -34,7 +37,7 @@ services:
     container_name: prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
+      - prometheus-data:/prometheus
     command:
       - '-config.file=/etc/prometheus/prometheus.yml'
       - '-storage.local.path=/prometheus'
@@ -66,7 +69,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - grafana_data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     env_file:
       - config.monitoring
     networks:
